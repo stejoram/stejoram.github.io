@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@stejoram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">Resume</a></li>
+          <li><a href="projects.html">Case Studies</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="portada-principal">
+        <img src="img/portada.jpg" alt="Steven Ramírez" />
+      </div>
+      <h1>Steven Ramírez</h1>
+      <p class="hero-tagline"> Supply Chain Scientist | Optimization Researcher </p>
+      <p class="hero-subtitle">
+        If you can imagine it, you can code it.
+      </p>
+      
+      <!-- Quick Navigation
+      <div class="hero-nav">
+        <a href="about.html" class="hero-btn">
+          <i class="fas fa-user-circle"></i>
+          Conoce mi historia
+        </a>
+        <a href="projects.html" class="hero-btn">
+          <i class="fas fa-code"></i>
+          Ver mis proyectos
+        </a>
+        <a href="contact.html" class="hero-btn">
+          <i class="fas fa-envelope"></i>
+          Contactar
+        </a>
+      </div>-->
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Quick Overview -->
+    <section class="section">
+      <div class="container">
+        <div class="overview-grid">
+          <div class="overview-card" onclick="location.href='about.html'">
+            <div class="overview-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <h3>About Me</h3>
+            <p>
+              Ingeniero Matemático especializado en optimización y ciencias de la cadena de suministro. 
+              Información de contacto y colaboración disponible.
+            </p>
+            <div class="card-arrow">→</div>
+          </div>
+
+          <div class="overview-card" onclick="location.href='projects.html'">
+            <div class="overview-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3>Proyectos</h3>
+            <p>
+              Soluciones innovadoras en ruteo optimizado, forecasting con ML, 
+              dashboards interactivos y análisis de redes logísticas.
+            </p>
+            <div class="card-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="section" style="background: #f8f9fa;">
+      <div class="container">
+        <h2 class="section-title">En números</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">25%</div>
+            <div class="stat-label">Reducción de costos logísticos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Rutas optimizadas diariamente</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Proyectos de ML implementados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">Python</div>
+            <div class="stat-label">Lenguaje principal de desarrollo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-home">
+          <h2>¿Tienes un desafío de optimización?</h2>
+          <p>
+            Siempre estoy interesado en proyectos que combinen matemáticas, 
+            tecnología e impacto real en los negocios.
+          </p>
+          <div class="cta-buttons">
+            <a href="projects.html" class="cta-btn secondary">
+              <i class="fas fa-eye"></i>
+              Ver mis proyectos
+            </a>
+            <a href="about.html" class="cta-btn primary">
+              <i class="fas fa-paper-plane"></i>
+              Contactar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Steven Ramírez. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Add click functionality to cards
+    document.querySelectorAll('.overview-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const onclick = this.getAttribute('onclick');
+        if (onclick) {
+          const url = onclick.match(/'([^']+)'/);
+          if (url) {
+            window.location.href = url[1];
+          }
+        }
+      });
+    });
+
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+      }
+    });
+  </script>
+</body>
+</html>
