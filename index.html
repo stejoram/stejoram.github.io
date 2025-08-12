@@ -7,85 +7,141 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      25% { transform: translateY(-20px) translateX(10px); }
+      50% { transform: translateY(-10px) translateX(-10px); }
+      75% { transform: translateY(-15px) translateX(5px); }
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .particle:nth-child(1) { top: 20%; left: 10%; }
+    .particle:nth-child(2) { top: 60%; left: 80%; }
+    .particle:nth-child(3) { top: 30%; left: 70%; }
+    
+    #hero-text:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 25px rgba(60,60,120,0.18);
+    }
+    
+    .hero-interactive {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    
+    /* Remove blue outline and selection highlights */
+    #hero-text {
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    .scroll-hint {
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+    }
+    
+    .scroll-hint:focus {
+      outline: none;
+    }
+    
+    /* Prevent visual artifacts and blue strips */
+    .hero {
+      overflow: hidden;
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    body {
+      overflow-x: hidden;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
       <div class="nav-content">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">Resume</a></li>
-          <li><a href="projects.html">Case Studies</a></li>
-        </ul>
+        <div style="width:100%; display:flex; justify-content:center; align-items:center;">
+          <div style="font-weight:bold; font-size:1.3em; text-align:center; letter-spacing:1px; color:#2b2e4a;">Optimization Researcher</div>
+        </div>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="portada-principal">
-        <img src="img/portada.jpg" alt="Steven Ramírez" />
+  <section class="hero" id="hero-section" style="width:100%; background: linear-gradient(120deg, #e3e8ee 0%, #f8fafc 60%, #c7d2fe 100%); padding: 32px 20px; display: flex; justify-content: center; align-items: center; min-height: 60vh; position: relative; overflow: hidden;">
+    <!-- Animated background particles -->
+    <div class="particles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+      <div class="particle" style="position: absolute; width: 4px; height: 4px; background: rgba(43, 46, 74, 0.1); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+      <div class="particle" style="position: absolute; width: 6px; height: 6px; background: rgba(43, 46, 74, 0.08); border-radius: 50%; animation: float 8s ease-in-out infinite reverse; animation-delay: -2s;"></div>
+      <div class="particle" style="position: absolute; width: 3px; height: 3px; background: rgba(43, 46, 74, 0.12); border-radius: 50%; animation: float 7s ease-in-out infinite; animation-delay: -4s;"></div>
+    </div>
+    
+    <div style="display: flex; justify-content: center; align-items: center; max-width: 800px; width: 100%; position: relative; z-index: 1;">
+      <h1 id="hero-text" style="font-size:clamp(1.6em, 3.5vw, 2.4em); font-weight:800; text-align:center; margin:0; color:#2b2e4a; line-height:1.1; background:linear-gradient(90deg,#f8fafc 60%,#e3e8ee 100%); padding:clamp(20px, 4vw, 32px); border-radius:18px; box-shadow:0 4px 20px rgba(60,60,120,0.12); width:100%; max-width:600px; letter-spacing:0.5px; font-family:'Inter',sans-serif; text-shadow: 0 2px 8px rgba(60,60,120,0.10); cursor: pointer; transition: all 0.3s ease; transform: scale(1);">If you can imagine it, you can code it.</h1>
+    </div>
+    
+    <!-- Floating action hint -->
+    <div class="scroll-hint" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(43, 46, 74, 0.6); font-size: 0.9em; animation: bounce 2s infinite;">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Overview Cards Section -->
+  <section style="width:100%; background: #ffffff; padding: 40px 20px; display: flex; justify-content: center; align-items: center;">
+    <div style="display: flex; flex-direction: row; gap: 32px; max-width: 800px; width: 100%; justify-content: center; flex-wrap: wrap;">
+      <div class="overview-card" onclick="location.href='about.html'" style="box-shadow:0 4px 16px rgba(0,0,0,0.07); border-radius:16px; padding:clamp(20px, 4vw, 28px); background:linear-gradient(135deg,#f8fafc 80%,#e3e8ee 100%); width:100%; max-width:350px; min-width:280px; display: flex; flex-direction: column; justify-content: space-between; font-family:'Inter',sans-serif; flex: 1 1 280px;">
+        <div class="overview-icon" style="margin-bottom:12px; text-align:center; color:#3a4a6b; font-size:2em;">
+          <i class="fas fa-user"></i>
+        </div>
+        <h3 style="margin:0 0 10px 0; text-align:center; font-size:1.25em; font-weight:600; color:#1a2233;">Resume</h3>
+        <p style="margin:0 0 10px 0; font-size:1em; color:#444; text-align:center; line-height:1.5;">
+          I'm Steven Ramirez, solving business challenges with data-driven optimization.
+        </p>
+        <div class="card-arrow" style="font-size:1.3em; color:#888; text-align:center;">→</div>
       </div>
-      <h1>Steven Ramírez</h1>
-      <p class="hero-tagline"> Supply Chain Scientist | Optimization Researcher </p>
-      <p class="hero-subtitle">
-        If you can imagine it, you can code it.
-      </p>
-      
-      <!-- Quick Navigation
-      <div class="hero-nav">
-        <a href="about.html" class="hero-btn">
-          <i class="fas fa-user-circle"></i>
-          Conoce mi historia
-        </a>
-        <a href="projects.html" class="hero-btn">
-          <i class="fas fa-code"></i>
-          Ver mis proyectos
-        </a>
-        <a href="contact.html" class="hero-btn">
-          <i class="fas fa-envelope"></i>
-          Contactar
-        </a>
-      </div>-->
+      <div class="overview-card" onclick="location.href='projects.html'" style="box-shadow:0 4px 16px rgba(0,0,0,0.07); border-radius:16px; padding:clamp(20px, 4vw, 28px); background:linear-gradient(135deg,#f8fafc 80%,#e3e8ee 100%); width:100%; max-width:350px; min-width:280px; display: flex; flex-direction: column; justify-content: space-between; font-family:'Inter',sans-serif; flex: 1 1 280px;">
+        <div class="overview-icon" style="margin-bottom:12px; text-align:center; color:#3a4a6b; font-size:2em;">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h3 style="margin:0 0 10px 0; text-align:center; font-size:1.25em; font-weight:600; color:#1a2233;">Projects</h3>
+        <p style="margin:0 0 10px 0; font-size:1em; color:#444; text-align:center; line-height:1.5;">
+          Here are some of my best optimization projects, created to demonstrate my capabilities and keep advancing my expertise.
+        </p>
+        <div class="card-arrow" style="font-size:1.3em; color:#888; text-align:center;">→</div>
+      </div>
     </div>
   </section>
 
   <!-- Main Content -->
   <div class="main-content">
-    <!-- Quick Overview -->
-    <section class="section">
-      <div class="container">
-        <div class="overview-grid">
-          <div class="overview-card" onclick="location.href='about.html'">
-            <div class="overview-icon">
-              <i class="fas fa-user"></i>
-            </div>
-            <h3>About Me</h3>
-            <p>
-              Ingeniero Matemático especializado en optimización y ciencias de la cadena de suministro. 
-              Información de contacto y colaboración disponible.
-            </p>
-            <div class="card-arrow">→</div>
-          </div>
+    <!-- ...existing code... -->
 
-          <div class="overview-card" onclick="location.href='projects.html'">
-            <div class="overview-icon">
-              <i class="fas fa-project-diagram"></i>
-            </div>
-            <h3>Proyectos</h3>
-            <p>
-              Soluciones innovadoras en ruteo optimizado, forecasting con ML, 
-              dashboards interactivos y análisis de redes logísticas.
-            </p>
-            <div class="card-arrow">→</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key Highlights -->
+    <!-- Key Highlights 
     <section class="section" style="background: #f8f9fa;">
       <div class="container">
         <h2 class="section-title">En números</h2>
@@ -109,11 +165,11 @@
         </div>
       </div>
     </section>
-
+    -->
     <!-- Call to Action -->
     <section class="section">
-      <div class="container">
-        <div class="cta-home">
+      <div class="container" style="display: flex; justify-content: flex-end;">
+        <div class="cta-home" style="max-width: 400px;">
           <h2>¿Tienes un desafío de optimización?</h2>
           <p>
             Siempre estoy interesado en proyectos que combinen matemáticas, 
@@ -163,6 +219,84 @@
       } else {
         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
       }
+    });
+
+    // Hero section interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroText = document.getElementById('hero-text');
+      const heroSection = document.getElementById('hero-section');
+      const scrollHint = document.querySelector('.scroll-hint');
+      
+      // Text rotation effect
+      const texts = [
+        "If you can imagine it, you can code it.",
+        "Optimization is the key to excellence.",
+        "Data-driven solutions for real problems.",
+        "Turning complexity into simplicity."
+      ];
+      let currentIndex = 0;
+      
+      // Auto text rotation every 4 seconds
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % texts.length;
+        heroText.style.opacity = '0.7';
+        setTimeout(() => {
+          heroText.textContent = texts[currentIndex];
+          heroText.style.opacity = '1';
+        }, 300);
+      }, 4000);
+      
+      // Click interaction on hero text
+      heroText.addEventListener('click', function() {
+        this.classList.add('hero-interactive');
+        setTimeout(() => {
+          this.classList.remove('hero-interactive');
+        }, 3000);
+        
+        // Trigger next text immediately
+        currentIndex = (currentIndex + 1) % texts.length;
+        this.style.opacity = '0.7';
+        setTimeout(() => {
+          this.textContent = texts[currentIndex];
+          this.style.opacity = '1';
+        }, 300);
+      });
+      
+      // Scroll hint click
+      if (scrollHint) {
+        scrollHint.addEventListener('click', function() {
+          // Find the Overview Cards Section specifically
+          const overviewSection = document.querySelector('section[style*="background: #ffffff"]');
+          if (overviewSection) {
+            overviewSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      }
+      
+      // Parallax effect for hero background - removed to prevent visual artifacts
+      // window.addEventListener('scroll', function() {
+      //   const scrolled = window.pageYOffset;
+      //   const rate = scrolled * -0.5;
+      //   heroSection.style.transform = `translateY(${rate}px)`;
+      // });
+      
+      // Mouse move effect for particles
+      heroSection.addEventListener('mousemove', function(e) {
+        const particles = document.querySelectorAll('.particle');
+        const rect = heroSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        particles.forEach((particle, index) => {
+          const speed = (index + 1) * 0.02;
+          const xMove = (x - rect.width / 2) * speed;
+          const yMove = (y - rect.height / 2) * speed;
+          particle.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        });
+      });
     });
   </script>
 </body>
