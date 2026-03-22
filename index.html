@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>https://stejoram.github.io</title>
+  <title>Steven Ramírez | Optimization Researcher</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
@@ -78,6 +78,78 @@
     * {
       box-sizing: border-box;
     }
+
+    /* ── Overview Cards ─────────────────────────────────── */
+    .home-cards {
+      width: 100%;
+      background: #ffffff;
+      padding: 48px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .home-cards-inner {
+      display: flex;
+      flex-direction: row;
+      gap: 28px;
+      max-width: 800px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .home-card {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      border-radius: 16px;
+      padding: clamp(24px, 4vw, 32px);
+      background: linear-gradient(135deg, #f8fafc 80%, #e3e8ee 100%);
+      width: 100%;
+      max-width: 350px;
+      min-width: 260px;
+      flex: 1 1 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #e8edf3;
+      text-decoration: none;
+    }
+
+    .home-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
+
+    .home-card-icon {
+      font-size: 2rem;
+      color: #3a4a6b;
+      margin-bottom: 4px;
+    }
+
+    .home-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a2233;
+      margin: 0;
+      text-align: center;
+    }
+
+    .home-card p {
+      font-size: 0.92rem;
+      color: #555;
+      text-align: center;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .home-card-arrow {
+      font-size: 1.1rem;
+      color: #005BAC;
+      font-weight: 700;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -86,7 +158,7 @@
     <div class="container">
       <div class="nav-content">
         <div style="width:100%; display:flex; justify-content:center; align-items:center;">
-          <div style="font-weight:bold; font-size:1.3em; text-align:center; letter-spacing:1px; color:#2b2e4a;">Optimization Researcher</div>
+          <div style="font-weight:bold; font-size:1.2em; letter-spacing:1px; color:#2b2e4a;">Optimization Researcher</div>
         </div>
       </div>
     </div>
@@ -111,35 +183,25 @@
     </div>
   </section>
 
-  <!-- Overview Cards Section -->
-  <section style="width:100%; background: #ffffff; padding: 40px 20px; display: flex; justify-content: center; align-items: center;">
-    <div style="display: flex; flex-direction: row; gap: 32px; max-width: 800px; width: 100%; justify-content: center; flex-wrap: wrap;">
-      <div class="overview-card" onclick="location.href='about.html'" style="box-shadow:0 4px 16px rgba(0,0,0,0.07); border-radius:16px; padding:clamp(20px, 4vw, 28px); background:linear-gradient(135deg,#f8fafc 80%,#e3e8ee 100%); width:100%; max-width:350px; min-width:280px; display: flex; flex-direction: column; justify-content: space-between; font-family:'Inter',sans-serif; flex: 1 1 280px;">
-        <div class="overview-icon" style="margin-bottom:12px; text-align:center; color:#3a4a6b; font-size:2em;">
-          <i class="fas fa-user"></i>
-        </div>
-        <h3 style="margin:0 0 10px 0; text-align:center; font-size:1.25em; font-weight:600; color:#1a2233;">Resume</h3>
-        <p style="margin:0 0 10px 0; font-size:1em; color:#444; text-align:center; line-height:1.5;">
-          I'm Steven Ramirez, solving business challenges with data-driven optimization.
-        </p>
-        <div class="card-arrow" style="font-size:1.3em; color:#888; text-align:center;">→</div>
-      </div>
-      <div class="overview-card" onclick="location.href='projects.html'" style="box-shadow:0 4px 16px rgba(0,0,0,0.07); border-radius:16px; padding:clamp(20px, 4vw, 28px); background:linear-gradient(135deg,#f8fafc 80%,#e3e8ee 100%); width:100%; max-width:350px; min-width:280px; display: flex; flex-direction: column; justify-content: space-between; font-family:'Inter',sans-serif; flex: 1 1 280px;">
-        <div class="overview-icon" style="margin-bottom:12px; text-align:center; color:#3a4a6b; font-size:2em;">
-          <i class="fas fa-project-diagram"></i>
-        </div>
-        <h3 style="margin:0 0 10px 0; text-align:center; font-size:1.25em; font-weight:600; color:#1a2233;">Projects</h3>
-        <p style="margin:0 0 10px 0; font-size:1em; color:#444; text-align:center; line-height:1.5;">
-          Here are some of my best optimization projects, created to demonstrate my capabilities and keep advancing my expertise.
-        </p>
-        <div class="card-arrow" style="font-size:1.3em; color:#888; text-align:center;">→</div>
-      </div>
+  <!-- Overview Cards -->
+  <section class="home-cards">
+    <div class="home-cards-inner">
+      <a class="home-card" href="resume.html">
+        <div class="home-card-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Resume</h3>
+        <p>Professional background, work experience, and technical skills in operations research and supply chain optimization.</p>
+        <span class="home-card-arrow">→</span>
+      </a>
+      <a class="home-card" href="projects.html">
+        <div class="home-card-icon"><i class="fas fa-project-diagram"></i></div>
+        <h3>Projects</h3>
+        <p>Optimization models and data-driven solutions built to tackle real logistics and supply chain challenges.</p>
+        <span class="home-card-arrow">→</span>
+      </a>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <div class="main-content">
-    <!-- ...existing code... -->
+
 
     <!-- Key Highlights 
     <section class="section" style="background: #f8f9fa;">
@@ -180,7 +242,7 @@
               <i class="fas fa-eye"></i>
               Ver mis proyectos
             </a>
-            <a href="about.html" class="cta-btn primary">
+            <a href="resume.html" class="cta-btn primary">
               <i class="fas fa-paper-plane"></i>
               Contactar
             </a>
@@ -188,29 +250,14 @@
         </div>
       </div>
     </section>
-  </div>
-  -->
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Steven Ramírez. All rights reserved.</p>
+      <p>&copy; 2026 Steven Ramírez. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Add click functionality to cards
-    document.querySelectorAll('.overview-card').forEach(card => {
-      card.addEventListener('click', function() {
-        const onclick = this.getAttribute('onclick');
-        if (onclick) {
-          const url = onclick.match(/'([^']+)'/);
-          if (url) {
-            window.location.href = url[1];
-          }
-        }
-      });
-    });
-
     // Add scroll effect to navbar
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');

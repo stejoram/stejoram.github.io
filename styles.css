@@ -60,33 +60,47 @@ body {
   text-decoration: none;
 }
 
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #2b2e4a;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s ease;
+}
+
+.nav-brand:hover {
+  color: var(--primary-blue);
+}
+
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 4px;
+  background: #f1f5fb;
+  padding: 4px;
+  border-radius: 24px;
+  border: 1px solid #e3e8ee;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--dark-gray);
   font-weight: 500;
-  transition: color 0.3s ease;
-  position: relative;
+  transition: background 0.2s ease, color 0.2s ease;
+  padding: 5px 14px;
+  border-radius: 20px;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
+  background: #eef4fd;
   color: var(--primary-blue);
 }
 
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--accent-red);
+.nav-links a.active {
+  background: #e0ecfb;
+  color: var(--primary-blue);
+  font-weight: 600;
 }
 
 /* Hero Section */
